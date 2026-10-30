@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>APS — Vencimientos Corporativos</title>
+
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#4b4b4b;background:#fff}.app{min-height:100vh;display:flex}.sidebar{width:190px;border-right:1px solid #e8edf3;background:#fff}.logo{height:72px;padding:16px;color:#0751aa;font-weight:700;border-bottom:1px solid #edf0f4}.search{margin:14px;padding:10px;border:1px solid #dce1e8;border-radius:5px;color:#9aa3b0}.nav div{padding:14px 18px;font-size:13px}.nav .active{background:#0757b8;color:#fff}.main{flex:1;background:#fcfdff}.top{height:52px;background:#f5f8fc;border-bottom:1px solid #e6eaf0;display:flex;justify-content:flex-end;align-items:center;padding:0 24px;gap:10px;font-size:12px}.avatar{width:32px;height:32px;border-radius:50%;background:#50a7db;color:white;display:grid;place-items:center}.content{padding:30px}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.head h1{margin:0;color:#10264a;font-size:31px;font-weight:400}.head p{margin:7px 0;color:#68758c;font-size:17px}.actions{display:flex;flex-direction:column;align-items:flex-end;gap:18px}.secondary-actions{display:flex;align-items:center;gap:18px}.btn{height:40px;padding:0 18px;border-radius:7px;border:1px solid #159ee1;background:white;color:#138fce;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:9px}.btn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}.btn.primary{width:188px;height:49px;background:#1297c5;color:#fff;border-color:#1297c5;font-size:17px}.btn.filter-button{width:118px}.table-search{position:relative;width:255px}.table-search input{width:100%;height:48px;padding:0 46px 0 13px;border:1px solid #aeb4bc;border-radius:8px;background:#fff;color:#4b4b4b;font-size:16px;outline:none}.table-search svg{position:absolute;right:13px;top:14px;width:21px;height:21px;stroke:#a5aab1;fill:none;stroke-width:2}.tabs{display:grid;grid-template-columns:1fr 1fr;margin-top:22px;border-bottom:1px solid #1262b9}.tabs button{border:0;padding:11px;background:white;color:#52627e}.tabs .active{background:#0757b8;color:#fff}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px}.card{background:#fff;border:1px solid #e2e6ec;border-radius:6px;padding:19px 22px;box-shadow:0 3px 9px rgba(28,43,72,.10);display:flex;justify-content:space-between}.num{font-size:34px;font-weight:700;color:#14284b}.ico{font-size:28px;color:#0757b8}.tablebox{margin-top:22px;padding:18px;background:#fff;border:1px solid #e2e6ec;border-radius:6px;box-shadow:0 3px 9px rgba(28,43,72,.10)}table{width:100%;border-collapse:collapse;font-size:13px}th{background:#eef4fd;color:#294d78;text-align:left;padding:13px}td{padding:14px 13px;border-bottom:1px solid #edf0f4}.acts{display:flex;gap:7px;position:relative}.iconbtn{width:29px;height:29px;border:0;border-radius:4px;background:#eef1f6;color:#9ba5b5;display:grid;place-items:center}.iconbtn svg{width:18px;stroke:currentColor;fill:none;stroke-width:1.8}.dots.active{background:#159ee1;color:#fff}.status{padding:4px 9px;border-radius:12px;font-size:11px}.pending{background:#fff2c7;color:#8a6a00}.reneg{background:#dff3ff;color:#0879ae}.renewed{background:#dff3df;color:#397739}.menu{position:absolute;left:36px;top:32px;width:240px;background:#fff;border:1px solid #ddd;box-shadow:0 5px 18px #0002;z-index:10;display:none}.menu.open{display:block}.menu button{display:block;width:100%;padding:10px 14px;text-align:left;border:0;background:white}.menu button:disabled{color:#b9bec6;background:#f7f7f7;cursor:not-allowed}.overlay{position:absolute;inset:0;background:#0004;display:none;z-index:20}.overlay.show{display:block}.drawer{position:absolute;right:0;top:0;bottom:0;width:380px;background:white;z-index:21;display:none;box-shadow:-8px 0 24px #0002;overflow:auto}.drawer.show{display:block}.drawer h2{margin:0;padding:24px;background:#f0f4ff}.filter{padding:22px;border-bottom:1px solid #eee}.filter h3{margin:0 0 14px}.chips button{margin:3px;border:1px solid #bbb;background:#fff;border-radius:4px;padding:5px 9px}.dategrid,.primegrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{width:100%;padding:12px;border:1px solid #c7cbd1;border-radius:7px;background:white}.modal{position:absolute;z-index:31;left:50%;top:55px;transform:translateX(-50%);width:min(700px,92%);background:#fff;padding:28px 46px 38px;border-radius:5px;box-shadow:0 12px 35px #0004;display:none}.modal.show{display:block}.modal h2{text-align:center;font-weight:500}.detail td:first-child{width:44%;background:#f0f4ff;font-weight:500}.attach{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;align-items:center;margin-top:28px}.file{background:#073ca9;color:#fff;padding:18px;border-radius:7px;text-align:center}.download{width:100%;margin-top:18px;padding:14px;border:0;border-radius:7px;background:#10abe0;color:white;font-size:18px}.download-modal{top:175px;width:min(470px,92%);padding:44px 48px 48px;border-radius:8px}.download-modal h2{margin:2px 0 2px;font-size:29px;color:#424242}.download-modal p{margin:0 0 22px;text-align:center;color:#666;font-size:17px}.format-options{display:flex;justify-content:space-between;gap:35px;padding:0 0 2px}.format-option{display:flex;align-items:center;gap:8px;font-size:17px;color:#777}.format-option input{appearance:none;width:20px;height:20px;margin:0;border:2px solid #aaa;border-radius:3px;background:#fff}.format-option input:checked{background:#10abe0;border-color:#10abe0;box-shadow:inset 0 0 0 4px #fff}.download-confirm{width:100%;height:40px;margin-top:22px;border:0;border-radius:7px;background:#10abe0;color:#fff;font-size:16px}.download-close{position:absolute;right:20px;top:15px;border:0;background:none;font-size:29px;line-height:1;color:#aaa}.success-toast{position:fixed;right:24px;top:74px;z-index:50;width:350px;min-height:72px;padding:15px 48px 15px 72px;border-left:4px solid #7dbb0c;border-radius:4px;background:#eef8d8;color:#55820a;box-shadow:0 8px 24px #0002;display:none}.success-toast.show{display:block}.success-toast .check{position:absolute;left:25px;top:24px;font-size:24px}.success-toast strong{display:block;font-size:16px}.success-toast span{display:block;margin-top:4px;font-size:14px}.toast-close{position:absolute;right:14px;top:22px;width:22px;height:22px;border:0;border-radius:50%;background:#fff;color:#aaa}@media(max-width:900px){.sidebar{display:none}.cards{grid-template-columns:1fr 1fr}.drawer{width:88%}.head{flex-direction:column}.actions{width:100%;align-items:stretch}.secondary-actions{width:100%}.table-search{flex:1}.success-toast{left:20px;right:20px;width:auto}}
+    .main{min-width:0}.sidebar{position:relative;flex:0 0 210px;width:210px;transition:width .2s,flex-basis .2s}.sidebar-toggle{position:absolute;right:-16px;top:65px;z-index:12;width:32px;height:32px;border:1px solid #e6eaf0;background:#fff;border-radius:50%;box-shadow:0 2px 8px #0001;color:#7c8999;cursor:pointer;display:grid;place-items:center}.sidebar-toggle svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}.sidebar .nav div{display:flex;align-items:center;gap:12px;min-height:51px;font-size:14px}.nav-icon{width:22px;text-align:center;flex-shrink:0;font-size:19px}.sidebar.collapsed{width:68px;flex-basis:68px}.sidebar.collapsed .nav-label,.sidebar.collapsed .search{display:none}.sidebar.collapsed .nav div{padding:14px 22px}.sidebar.collapsed .brand-seal{width:48px;height:48px}.sidebar.collapsed .sidebar-toggle svg{transform:rotate(180deg)}.tablebox{padding:16px}.grid-scroll{overflow:auto;max-width:100%}.grid-scroll table{min-width:1060px;font-size:14px}.grid-scroll th{white-space:nowrap;padding:14px 12px;font-size:14px;font-weight:600}.grid-scroll td{padding:17px 12px;vertical-align:middle}.grid-scroll td:nth-child(3){min-width:165px;max-width:205px;line-height:1.5}.policy-line{display:block;min-height:32px;line-height:32px;white-space:nowrap}.policy-line+.policy-line{border-top:1px dashed #e6ebf2}.policy-count{display:block;font-size:12px;color:#8a95a3;margin-top:5px}.grid-scroll .status{white-space:nowrap;font-size:12px}.grid-scroll .menu{position:fixed;left:auto;top:auto;z-index:15}.grid-scroll .menu button{font-size:14px;cursor:pointer}.grid-scroll .menu button:disabled{cursor:not-allowed}.grid-scroll .menu button:not(:disabled):hover{background:#eef7fc}.head h1{font-weight:400}.tabs .active{background:#073ca9}.emission-dialog{width:min(1280px,calc(100vw - 48px));height:min(930px,calc(100dvh - 48px));max-width:none;max-height:none;padding:0;border:0;border-radius:9px;color:#526071;box-shadow:0 22px 80px #09203a44;background:#fff;overflow:hidden}.emission-dialog::backdrop{background:#10263f80}.emission-dialog *{box-sizing:border-box}.emission-dialog form{height:100%;display:flex;flex-direction:column}.eo-header{padding:23px 28px;border-bottom:1px solid #dfe8ef;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#fff}.eo-header h2{font-size:25px;font-weight:400;color:#102d4c;margin:0 0 6px}.eo-header p{font-size:14px;margin:0;color:#758293}.eo-demo{display:inline-block;vertical-align:middle;margin-left:10px;padding:3px 8px;color:#62758b;background:#f0f5fb;border-radius:4px;font-size:12px}.eo-close{width:36px;height:36px;border:0;background:#f4f7fb;color:#7b8795;border-radius:50%;cursor:pointer;font-size:26px;flex-shrink:0}.eo-layout{flex:1;min-height:0;display:grid;grid-template-columns:218px minmax(0,1fr)}.eo-nav{padding:26px 18px;background:#f9fbfe;border-right:1px solid #e8edf4;overflow:auto}.eo-nav-title{margin:0 10px 18px;font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#8290a2}.eo-nav button{width:100%;display:flex;align-items:center;gap:10px;text-align:left;padding:12px 9px;margin-bottom:6px;border:0;background:transparent;color:#738095;border-radius:6px;font-size:14px;cursor:pointer}.eo-nav button span{display:grid;place-items:center;width:27px;height:27px;flex-shrink:0;border-radius:5px;background:#edf2fb;color:#46668d}.eo-nav button.active{color:#073ca9;background:#ebf3fc;font-weight:600}.eo-nav button.active span{background:#073ca9;color:#fff}.eo-nav .eo-summary{padding:18px 10px;border-top:1px solid #e2e8f1;margin-top:25px;font-size:13px;line-height:1.7;color:#7d899a}.eo-summary strong{display:block;color:#274566;font-size:16px}.eo-scroll{padding:26px 32px 36px;overflow:auto;scroll-behavior:smooth}.eo-choice{margin-bottom:32px;max-width:560px}.eo-section{scroll-margin-top:22px;margin-bottom:30px}.eo-section h3{display:flex;align-items:center;gap:16px;margin:0 0 23px;font-size:15px;font-weight:600;color:#164a86}.eo-section h3:after{content:'';height:1px;flex:1;background:repeating-linear-gradient(90deg,#93afd0 0 8px,transparent 8px 13px)}.eo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px}.eo-field{position:relative;display:flex;flex-direction:column;min-width:0;min-height:58px;border:1px solid #56b9d4;border-radius:7px;background:#fff;padding:7px 12px 5px;transition:box-shadow .15s}.eo-field:focus-within{box-shadow:0 0 0 3px #0da8d51c;border-color:#0da8d5}.eo-field>span{font-size:12px;font-weight:600;color:#1599bd;line-height:16px}.eo-field input,.eo-field select,.eo-field textarea{display:block;width:100%;min-width:0;border:0;background:transparent;outline:0;color:#515d6a;font-family:inherit;font-size:15px;padding:4px 0 3px;line-height:1.45;min-height:27px}.eo-field select{cursor:pointer;padding-right:18px}.eo-field.locked{background:#f4f6f9;border-color:#d7e0e9}.eo-field.locked>span{color:#7f8c9c}.eo-field.locked input{color:#748090;cursor:default}.eo-field.wide{grid-column:1/-1}.eo-field textarea{min-height:130px;resize:vertical;line-height:1.65}.eo-check{display:flex;align-items:center;gap:10px;font-size:14px;color:#4d6078;margin:0 0 19px;cursor:pointer}.eo-check input{width:18px;height:18px;accent-color:#08a6d6}.eo-note{margin:12px 0 0;color:#8490a0;font-size:12px;line-height:1.5}.eo-attachments{display:grid;gap:8px}.eo-file{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #e0e7f0;border-radius:6px;background:#f9fbff;font-size:14px}.eo-file>span{flex:1;min-width:0;overflow-wrap:anywhere;color:#445e7d}.eo-file small{font-size:12px;color:#8b98a8}.eo-file button{background:transparent;border:0;color:#7f92a8;cursor:pointer;font-size:18px}.eo-upload{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border:1px dashed #24a9d1;border-radius:6px;color:#119ac2;font-size:14px;cursor:pointer;margin-top:12px}.eo-upload input{display:none}.eo-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px;border-top:1px solid #e3e9f2;background:#fff}.eo-error{color:#b14848;font-size:14px;line-height:1.5;margin:0}.eo-footer-actions{display:flex;gap:12px;flex-shrink:0}.eo-button{height:43px;border-radius:6px;padding:0 21px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;border:1px solid #0ca7d9;background:#fff;color:#0794c5}.eo-button.primary{background:#08a9d8;color:#fff}.eo-button:disabled{opacity:.6;cursor:wait}.eo-order-info{padding:12px 14px;margin-top:14px;border-radius:6px;background:#edf6ff;color:#1a568c;font-size:14px}.emission-dialog [hidden]{display:none!important}body.emission-open{overflow:hidden}.eo-policy-mini{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:12px;padding:10px 0;border-bottom:1px solid #e8edf3;font-size:13px}.eo-policy-mini.header{color:#7d8c9f;font-size:12px}.eo-policy-mini span{overflow-wrap:anywhere}.eo-field input:read-only{cursor:default}.eo-section[data-locked=true] .eo-field{background:#f6f8fb}
+    .emission-dialog{width:min(1020px,calc(100vw - 48px))}.eo-layout{display:block;overflow:hidden}.eo-scroll{height:100%;padding:26px 36px}.eo-field textarea{min-height:210px}.eo-section .upload-zone input{display:none}.emission-dialog .upload-tooltip{right:0}.emission-dialog .selected-files{margin-top:16px}.emission-dialog .selected-file-name{font-size:14px}.emission-dialog .remove-file{font-size:14px}
+    @media(max-width:1100px){.content{padding:24px}.eo-scroll{padding:24px}}
+    @media(max-width:900px){.sidebar{display:none}.emission-dialog{width:calc(100vw - 24px);height:calc(100dvh - 24px)}.eo-layout{display:flex;flex-direction:column}.eo-nav{padding:9px 12px;border-right:0;border-bottom:1px solid #e8edf4;overflow-x:auto;flex:0 0 auto;display:flex;gap:8px}.eo-nav-title,.eo-summary{display:none}.eo-nav button{width:auto;white-space:nowrap;padding:7px 9px;margin:0;font-size:13px}.eo-nav button span{width:22px;height:22px}.eo-scroll{flex:1;min-height:0}.eo-header{padding:18px 22px}.eo-header h2{font-size:22px}.eo-header p{font-size:13px}}
+    @media(max-width:600px){.content{padding:20px 14px}.tablebox{padding:10px}.cards{gap:10px}.card{padding:16px 12px}.emission-dialog{width:100vw;height:100dvh;margin:0;border-radius:0}.eo-header{padding:16px}.eo-header h2{font-size:20px}.eo-demo{display:block;width:max-content;margin:6px 0 0}.eo-scroll{padding:22px 16px}.eo-grid{grid-template-columns:1fr;gap:15px}.eo-footer{padding:13px 16px;flex-wrap:wrap}.eo-footer-actions{width:100%}.eo-button{flex:1;padding:0 12px}.eo-policy-mini{font-size:12px;gap:7px}.eo-field input,.eo-field select,.eo-field textarea{font-size:16px}}
+    .no-renew-detail{display:block;margin-top:18px;font-size:14px;font-weight:600;color:#4c5561}.no-renew-detail textarea{display:block;width:100%;margin-top:9px;min-height:115px;padding:12px 14px;border:1px solid #56b9d4;border-radius:7px;font-family:inherit;font-size:15px;font-weight:400;line-height:1.5;resize:vertical}.no-renew-detail textarea:focus{outline:2px solid #0da8d530;border-color:#0da8d5}
+    .renegotiation-observations{margin-top:22px}.renegotiation-observations textarea{min-height:120px;resize:vertical}.renegotiation-observations .workflow-divider{font-size:14px}
+    .eo-mode-panel{margin-top:22px;padding-top:22px;border-top:1px solid #e6edf4}
+    .eo-inspection-fields{margin-top:18px}
+    .branch-filter-help{margin:-5px 0 10px;color:#7d8998;font-size:12px;line-height:1.4}.branch-filter-options{display:flex;flex-wrap:wrap;gap:6px}.branch-filter-options button{margin:0}.branch-filter-options button:focus-visible{outline:2px solid #159ee1;outline-offset:2px}
+    .ico{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#edf5ff}.ico svg{width:28px;height:28px;stroke:#0757b8;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.table-footer{display:flex;align-items:center;justify-content:space-between;padding:24px 4px 4px;color:#454b54;font-size:12px}.pagination{display:flex;align-items:center;gap:4px}.page-button{min-width:24px;height:24px;padding:0 6px;border:0;border-radius:4px;background:transparent;color:#68717e}.page-button.active{background:#f0f5fd;color:#1558a6;font-weight:700}.page-button.arrow{background:#edf2f8;color:#9ba9ba;font-size:23px;line-height:20px}.page-button:disabled{opacity:.55}.page-ellipsis{padding:0 3px;color:#68717e}@media(max-width:700px){.table-footer{gap:16px;align-items:flex-start;flex-direction:column}.pagination{align-self:flex-end}}
+    .tabs button{display:flex;align-items:center;justify-content:center;gap:9px}.tabs button svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.notrenewed{background:#f2e4e4;color:#9a4444}.workflow-modal{top:70px;width:min(640px,92%);padding:28px 30px 30px}.workflow-modal h2{margin:4px 0 5px;font-size:28px;color:#40444a}.modal-subtitle{text-align:center;margin:0 0 24px;color:#70757d}.workflow-divider{display:flex;align-items:center;gap:12px;margin:18px 0;color:#174f91;font-size:12px}.workflow-divider:before,.workflow-divider:after{content:"";flex:1;border-top:1px dashed #2465a9}.upload-row{display:grid;grid-template-columns:170px 1fr;gap:18px;align-items:center}.upload-zone{min-height:76px;border:1px dashed #b5c2d3;border-radius:7px;background:#f5f8fe;color:#66717e;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer}.upload-zone input{display:none}.upload-zone svg{width:22px;height:22px;stroke:#8b97a7;fill:none;stroke-width:1.8}.upload-help{margin:14px 0 4px;padding:12px 15px;border-radius:5px;background:#073ca9;color:#fff;font-size:13px;line-height:1.45}.selected-files{margin:10px 0 0;padding:0;list-style:none;font-size:13px;color:#606975}.selected-files li{padding:6px 0;border-bottom:1px solid #edf0f4}.form-error{min-height:18px;margin:8px 0;color:#b44949;font-size:12px}.workflow-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:20px}.workflow-actions button{height:42px;padding:0 24px;border-radius:6px;font-size:15px;font-weight:600}.action-cancel{border:1px solid #12a4da;background:#fff;color:#0d96c8}.action-continue{border:1px solid #10abe0;background:#10abe0;color:#fff}.reason-select{width:100%;height:48px;padding:0 14px;border:1px solid #b8bec7;border-radius:7px;background:#fff;color:#555;font-size:15px}.history-table th{background:#eff4ff;color:#4d5561;font-size:14px}.history-table td{font-size:14px;color:#666}.history-table th:nth-child(1){width:30%}.history-table th:nth-child(2){width:25%}.documents-empty{padding:36px 16px;text-align:center;color:#87909c}.document-list{display:grid;gap:10px}.document-item{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px;border:1px solid #e2e7ee;border-radius:7px;background:#f8faff}.document-item strong{color:#30445f}.document-item span{font-size:12px;color:#788492}@media(max-width:650px){.upload-row{grid-template-columns:1fr}.workflow-actions{flex-direction:column-reverse}.workflow-actions button{width:100%}}
+    .dashboard-view{display:none;margin-top:22px}.dashboard-view.show{display:block}.dashboard-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.dashboard-metric{min-height:142px;padding:22px;border:1px solid #e2e6ec;border-radius:7px;background:#fff;box-shadow:0 3px 9px rgba(28,43,72,.10)}.dashboard-metric-head{display:flex;align-items:center;justify-content:space-between;gap:15px}.dashboard-metric h3{margin:0;color:#52627a;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.35px}.dashboard-metric strong{display:block;margin-top:18px;color:#14284b;font-size:30px}.dashboard-metric small{display:block;margin-top:7px;color:#778399;font-size:12px}.dashboard-metric-icon{width:42px;height:42px;border-radius:12px;background:#edf5ff;display:grid;place-items:center;color:#0757b8}.dashboard-metric-icon svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.dashboard-charts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.dashboard-chart{position:relative;min-height:350px;padding:22px;border:1px solid #e2e6ec;border-radius:7px;background:#fff;box-shadow:0 3px 9px rgba(28,43,72,.10)}.dashboard-chart h3{margin:0;color:#14284b;font-size:17px}.dashboard-chart>p{margin:6px 0 20px;color:#7a8494;font-size:13px}.donut-layout{display:flex;align-items:center;justify-content:center;gap:34px;min-height:235px}.donut-wrap{position:relative;width:190px;height:190px}.donut-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}.donut-segment{cursor:pointer;transition:opacity .15s,stroke-width .15s}.donut-segment:hover{opacity:.82;stroke-width:20}.donut-center{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}.donut-center strong{color:#14284b;font-size:31px}.donut-center span{color:#7d8797;font-size:12px}.chart-legend{display:grid;gap:12px;min-width:150px}.legend-row{display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;font-size:13px;color:#5b6575}.legend-dot{width:10px;height:10px;border-radius:50%}.legend-row b{color:#243b5d}.branch-bars{display:grid;gap:21px;padding-top:12px}.branch-bar-head{display:flex;justify-content:space-between;margin-bottom:7px;color:#5f6978;font-size:13px}.branch-bar-head b{color:#284363}.branch-track{height:14px;border-radius:8px;background:#eef3f8;overflow:hidden}.branch-fill{height:100%;min-width:6px;border-radius:8px;background:linear-gradient(90deg,#0757b8,#13a6d6);cursor:pointer;transition:filter .15s}.branch-fill:hover{filter:brightness(1.13)}.chart-tooltip{position:absolute;z-index:5;display:none;min-width:145px;padding:9px 11px;border-radius:6px;background:#163252;color:#fff;font-size:12px;line-height:1.45;box-shadow:0 6px 18px #0003;pointer-events:none}.chart-tooltip.show{display:block}.document-item{grid-template-columns:minmax(0,1fr) auto auto;align-items:center}.document-item>div{min-width:0}.document-item strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.document-download{width:38px;height:38px;border:1px solid #19a1d2;border-radius:6px;background:#fff;color:#108fbe;display:grid;place-items:center;cursor:pointer}.document-download:hover{background:#eef9fd}.document-download svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}.summary-hidden{display:none!important}@media(max-width:1050px){.dashboard-metrics{grid-template-columns:1fr}.dashboard-charts{grid-template-columns:1fr}}@media(max-width:600px){.donut-layout{flex-direction:column}.document-item{grid-template-columns:minmax(0,1fr) auto}.document-item>span{display:none}}
+    .overlay{position:fixed}.modal,.download-modal,.workflow-modal{position:fixed;top:50%;transform:translate(-50%,-50%);max-height:calc(100vh - 40px);overflow:auto}
+    .upload-row{grid-template-columns:150px minmax(0,1fr) 32px;gap:14px}.upload-zone{min-height:58px}.upload-help{position:relative;display:grid;place-items:center;width:24px;height:24px;margin:0;padding:0;border:2px solid #aab2bd;border-radius:50%;background:#fff;color:#8993a1;font-size:14px;font-weight:700;line-height:1;cursor:help}.upload-tooltip{position:absolute;right:-8px;bottom:34px;width:280px;padding:11px 14px;border-radius:5px;background:#073ca9;color:#fff;font-size:13px;font-weight:400;line-height:1.45;text-align:left;box-shadow:0 7px 18px #0003;opacity:0;visibility:hidden;transform:translateY(5px);transition:.15s;pointer-events:none;z-index:6}.upload-tooltip:after{content:"";position:absolute;right:13px;bottom:-7px;border-width:7px 7px 0;border-style:solid;border-color:#073ca9 transparent transparent}.upload-help:hover .upload-tooltip,.upload-help:focus .upload-tooltip{opacity:1;visibility:visible;transform:translateY(0)}.selected-files{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 0;padding:0;list-style:none}.selected-file{position:relative;min-height:58px;padding:0!important;border:0!important;border-radius:7px;background:#10abe0;color:#fff;overflow:hidden}.selected-file-info{height:58px;padding:9px 12px;display:flex;align-items:center;justify-content:center;gap:8px;text-align:center}.selected-file-info svg{flex:0 0 auto;width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}.selected-file-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.remove-file{position:absolute;inset:0;width:100%;border:0;background:#aaa;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;cursor:pointer;font-size:13px;transition:opacity .15s}.remove-file svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8}.selected-file:hover .remove-file,.selected-file:focus-within .remove-file{opacity:1}@media(max-width:650px){.upload-row{grid-template-columns:1fr auto}.upload-row>span:first-child{grid-column:1/-1}.selected-files{grid-template-columns:1fr}}
+    .logo{height:92px;padding:10px;display:grid;place-items:center}.brand-seal{display:block;width:78px;height:78px;object-fit:contain}.top .avatar{font-size:12px}.drawer{position:fixed;display:none;flex-direction:column}.drawer.show{display:flex}.drawer>.filter{flex:0 0 auto}.filter-actions{position:sticky;bottom:0;z-index:2;margin-top:auto;padding:15px 16px;background:#f2f6ff;border-top:1px solid #e0e8f4;display:flex;align-items:center;justify-content:space-between;gap:16px}.filter-action{height:40px;padding:0 18px;border-radius:6px;font-size:14px;font-weight:600}.filter-clear{border:1px solid #12a4da;background:#fff;color:#0d96c8}.filter-apply{min-width:104px;border:1px solid #10abe0;background:#10abe0;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px}.filter-apply svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2}.chips button.selected{border-color:#159ee1;background:#eaf7fd;color:#087ead}
+    .dashboard-metric strong{font-size:38px;font-weight:700;line-height:1.05;letter-spacing:-.6px;color:#14284b}
+  </style>
+</head>
+<body>
+  <div id="root" style="position:relative">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">✦ Oficina<br>Virtual APS</div>
+        <div class="search">Buscar...</div>
+        <div class="nav">
+          <div>⌂ Dashboard</div>
+          <div>▤ APS</div>
+          <div>▣ Canales</div>
+          <div class="active">▣ Vencimientos<br>&nbsp;&nbsp;&nbsp;&nbsp;Corporativos</div>
+          <div>♙ Talleres y/o Proveedores</div>
+          <div>▤ Clientes</div>
+        </div>
+      </aside>
+      <main class="main">
+        <div class="top">♧ <span class="avatar">JV</span><b>Juan Villena</b> · APS Quito</div>
+        <div class="content">
+          <div class="head">
+            <div>
+              <h1>Vencimientos Corporativos</h1>
+              <p>Te mostramos un resumen de tu información</p>
+            </div>
+            <div class="actions">
+              <button class="btn primary" id="downloadBtn"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 18v3h14v-3"/></svg>Descargar</button>
+              <div class="secondary-actions">
+                <label class="table-search">
+                  <input id="tableSearch" type="search" placeholder="Buscar" aria-label="Buscar registros">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+                </label>
+                <button class="btn filter-button" id="filterBtn"><svg viewBox="0 0 24 24"><path d="M4 7h7m4 0h5M4 17h4m4 0h8M11 4v6M8 14v6M4 12h12m4 0h0"/></svg>Filtrar</button>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="active">▥ Resumen</button>
+            <button>▥ Dashboard</button>
+          </div>
+          <div class="cards">
+            <div class="card"><div><div class="num">128</div>Pólizas en cartera</div><div class="ico">▤</div></div>
+            <div class="card"><div><div class="num">42</div>Pendientes</div><div class="ico">◷</div></div>
+            <div class="card"><div><div class="num">18</div>En renegociación</div><div class="ico">↻</div></div>
+            <div class="card"><div><div class="num">68</div>Renovadas</div><div class="ico">✓</div></div>
+          </div>
+          <div class="tablebox">
+            <b style="color:#15294b">Vencimientos corporativos</b>
+            <table style="margin-top:14px">
+              <thead>
+                <tr>
+                  <th style="width:78px"></th>
+                  <th>Identificación</th>
+                  <th>Cliente / Nombre</th>
+                  <th>Ramo</th>
+                  <th>N° de póliza</th>
+                  <th>Vencimiento ↑</th>
+                  <th>Prima</th>
+                  <th>Sucursal</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <aside class="drawer" id="drawer">
+      <h2>Filtrar por: <button id="closeDrawer" style="float:right;border:0;background:none">×</button></h2>
+      <div class="filter">
+        <h3>Estado</h3>
+        <div class="chips"><button>Pendiente</button><button>En renegociación</button><button>Renovada</button><button>No renovada</button></div>
+      </div>
+      <div class="filter">
+        <h3>Ramo / Producto</h3>
+        <div class="chips"><button>Vida</button><button>Generales</button><button>Automotriz</button></div>
+      </div>
+      <div class="filter">
+        <h3>Fecha desde</h3>
+        <div class="dategrid">
+          <select class="field"><option>Año</option><option>2024</option><option>2025</option><option>2026</option><option>2027</option></select>
+          <select class="field"><option>Mes</option><option>Enero</option><option>Febrero</option><option>Marzo</option><option>Abril</option><option>Mayo</option><option>Junio</option><option>Julio</option><option>Agosto</option><option>Septiembre</option><option>Octubre</option><option>Noviembre</option><option>Diciembre</option></select>
+        </div>
+        <h3 style="margin-top:24px">Fecha hasta</h3>
+        <div class="dategrid">
+          <select class="field"><option>Año</option><option>2024</option><option>2025</option><option>2026</option><option>2027</option></select>
+          <select class="field"><option>Mes</option><option>Enero</option><option>Febrero</option><option>Marzo</option><option>Abril</option><option>Mayo</option><option>Junio</option><option>Julio</option><option>Agosto</option><option>Septiembre</option><option>Octubre</option><option>Noviembre</option><option>Diciembre</option></select>
+        </div>
+      </div>
+      <div class="filter">
+        <h3>Prima</h3>
+        <div class="primegrid"><input class="field" placeholder="Desde"><input class="field" placeholder="Hasta"></div>
+      </div>
+    </aside>
+    <div class="modal" id="modal">
+      <button id="closeModal" style="position:absolute;right:18px;top:12px;border:0;background:none;font-size:24px;color:#aaa">×</button>
+      <h2>Detalle de vencimiento corporativo</h2>
+      <table class="detail"><tbody id="detail"></tbody></table>
+      <div class="attach"><span>Adjuntos</span><div class="file">▱ &nbsp; Documentos_renovacion.zip</div></div>
+      <button class="download">⇩ &nbsp; Descargar adjuntos</button>
+    </div>
+    <div class="modal download-modal" id="downloadModal">
+      <button class="download-close" id="closeDownloadModal">×</button>
+      <h2>Descargar archivo</h2>
+      <p>Selecciona el tipo formato que deseas descargar</p>
+      <div class="format-options">
+        <label class="format-option"><input type="checkbox" name="downloadFormat" value="xml"> Formato XML</label>
+        <label class="format-option"><input type="checkbox" name="downloadFormat" value="pdf"> Formato PDF</label>
+      </div>
+      <button class="download-confirm">Descargar</button>
+    </div>
+    <div class="modal workflow-modal" id="renegotiateModal">
+      <button class="download-close workflow-close" data-close-workflow>×</button>
+      <h2 id="attachmentModalTitle">Enviar a renegociación</h2>
+      <p class="modal-subtitle" id="attachmentModalSubtitle">Carga los documentos para continuar con la renegociación</p>
+      <div class="workflow-divider">Adjuntos</div>
+      <div class="upload-row">
+        <span>Cargar archivos</span>
+        <label class="upload-zone"><input type="file" id="renegotiateFiles" multiple accept=".pdf,.xls,.xlsx,.doc,.docx,.jpg,.jpeg,.png"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0-4 4m4-4 4 4M5 15v5h14v-5"/></svg>Seleccionar archivos</label>
+        <span class="upload-help" tabindex="0" aria-label="Ver formatos permitidos">?<span class="upload-tooltip">Formatos permitidos: PDF, Excel, Word, JPG y PNG.<br>Máximo 5 archivos de hasta 70 MB cada uno.</span></span>
+      </div>
+      <ul class="selected-files" id="selectedFiles"></ul>
+      <section class="renegotiation-observations">
+        <div class="workflow-divider">Observaciones</div>
+        <label class="eo-field" for="renegotiateObservations"><span>Observaciones *</span><textarea id="renegotiateObservations" rows="4" required placeholder="Escribe las observaciones para la renegociación"></textarea></label>
+      </section>
+      <div class="form-error" id="renegotiateError"></div>
+      <div class="workflow-actions">
+        <button class="action-cancel" data-close-workflow>Cancelar</button>
+        <button class="action-continue" id="continueRenegotiation">Continuar</button>
+      </div>
+    </div>
+    <div class="modal workflow-modal" id="noRenewModal">
+      <button class="download-close workflow-close" data-close-workflow>×</button>
+      <h2>No renovar oportunidad</h2>
+      <p class="modal-subtitle">Selecciona el motivo para no renovar este registro</p>
+      <label for="noRenewReason" style="display:block;margin-bottom:9px;font-weight:600;color:#4c5561">Motivo para no renovar</label>
+      <select class="reason-select" id="noRenewReason">
+        <option value="">Selecciona una opción</option>
+        <option>Decisión del cliente</option>
+        <option>Precio de renovación</option>
+        <option>Cobertura insuficiente</option>
+        <option>Cambio de aseguradora</option>
+        <option>Otro motivo</option>
+      </select>
+      <div class="form-error" id="noRenewError"></div>
+      <div class="workflow-actions">
+        <button class="action-cancel" data-close-workflow>Cancelar</button>
+        <button class="action-continue" id="continueNoRenew">Continuar</button>
+      </div>
+    </div>
+    <div class="modal workflow-modal" id="historyModal">
+      <button class="download-close workflow-close" data-close-workflow>×</button>
+      <h2>Historial de cambios</h2>
+      <p class="modal-subtitle">Aquí podrás ver todas las transacciones realizadas</p>
+      <table class="history-table">
+        <thead>
+          <tr><th>Usuario</th><th>Fecha de modificación</th><th>Acción</th></tr>
+        </thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+    </div>
+    <div class="modal workflow-modal" id="documentsModal">
+      <button class="download-close workflow-close" data-close-workflow>×</button>
+      <h2>Administrador de documentos</h2>
+      <p class="modal-subtitle">Aquí se guardan los últimos documentos cargados</p>
+      <div id="documentsBody"></div>
+    </div>
+    <div class="success-toast" id="successToast" role="status">
+      <span class="check">✓</span><strong>Orden renovada exitosamente</strong><span>Se creó la orden de emisión N.° 746483</span>
+      <button class="toast-close" id="closeToast" aria-label="Cerrar aviso">×</button>
+    </div>
+  </div>
+
+  <script>
+    const data=[['Corporación Favorita S.A.','Vida','VF-2026-0123','15/09/2026','$ 12.450,00','Pendiente',''],['Constructora Andrade','Generales','GA-2026-0456','20/09/2026','$ 8.320,50','Pendiente',''],['Grupo Mancheno','Vida','VM-2026-0890','25/09/2026','$ 25.600,00','En renegociación',''],['Hotel Colón Internacional','Generales','HC-2026-0345','30/09/2026','$ 17.890,00','Renovada','OE-2026-00842'],['Agroindustrias del Norte','Automotriz','AN-2026-0987','02/10/2026','$ 9.450,30','Pendiente',''],['Ecuatrans S.A.','Generales','EA-2026-0654','05/10/2026','$ 14.230,00','Pendiente',''],['Servicios Petroleros S.A.','Vida','SP-2026-0769','10/10/2026','$ 11.980,40','Renovada','OE-2026-00911'],['Distribuidora Andina','Generales','DA-2026-0211','12/10/2026','$ 6.780,00','Pendiente','']];
+    const eye='<svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>';
+    const tb=document.getElementById('tbody'),tableSearch=document.getElementById('tableSearch'),successToast=document.getElementById('successToast');
+    
+    function renderRows(){
+      const q=tableSearch.value.trim().toLowerCase();
+      tb.innerHTML='';
+      data.forEach((x,i)=>{
+        if(q&&![...x,x.identificacion||'',x.sucursal||''].join(' ').toLowerCase().includes(q))return;
+        let cls=x[5]=='Renovada'?'renewed':x[5]=='En renegociación'?'reneg':'pending',pending=x[5]=='Pendiente';
+        tb.insertAdjacentHTML('beforeend',`<tr><td><div class="acts"><button class="iconbtn eye" data-i="${i}">${eye}</button><button class="iconbtn dots" data-d="${i}">⋮</button><div class="menu" id="m${i}"><button class="renew-action" data-renew="${i}" ${pending?'':'disabled'}>✓ Renovar</button><button ${pending?'':'disabled'}>↻ Renegociar</button><button ${pending?'':'disabled'}>⊗ No renovar</button><button>▤ Administrador de documentos</button><button>◷ Historial</button></div></div></td><td>${x.identificacion||'—'}</td><td>${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td><td>${x[4]}</td><td>${x.sucursal||'—'}</td><td><span class="status ${cls}">${x[5]}</span></td></tr>`);
+      });
+    }
+    renderRows();
+
+    const overlay=document.getElementById('overlay'),drawer=document.getElementById('drawer'),modal=document.getElementById('modal'),downloadModal=document.getElementById('downloadModal'),filterButton=document.getElementById('filterBtn'),closeDrawerButton=document.getElementById('closeDrawer'),closeDetailModal=document.getElementById('closeModal'),downloadButton=document.getElementById('downloadBtn'),downloadModalClose=document.getElementById('closeDownloadModal');
+    
+    filterButton.onclick=()=>{overlay.classList.add('show');drawer.classList.add('show')};
+    closeDrawerButton.onclick=()=>{overlay.classList.remove('show');drawer.classList.remove('show')};
+    downloadButton.addEventListener('click',()=>{overlay.classList.add('show');downloadModal.classList.add('show')});
+    downloadModalClose.addEventListener('click',()=>{overlay.classList.remove('show');downloadModal.classList.remove('show')});
+    tableSearch.addEventListener('input',()=>renderRows());
+    document.getElementById('closeToast').onclick=()=>successToast.classList.remove('show');
+
+    tb.addEventListener('click',e=>{
+      const eyeButton=e.target.closest('.eye'),dotsButton=e.target.closest('.dots'),renewButton=e.target.closest('.renew-action');
+      if(eyeButton){
+        let x=data[+eyeButton.dataset.i];
+        document.getElementById('detail').innerHTML=[['Nombre / Cliente',x[0]],['Ramo',x[1]],['N° de Póliza',x[2]],['Vencimiento',x[3]],['Prima',x[4]],['Estado',x[5]],['Orden de emisión',x[6]],['Motivo','']].map(v=>`<tr><td>${v[0]}</td><td>${v[1]||'&nbsp;'}</td></tr>`).join('');
+        overlay.classList.add('show');
+        modal.classList.add('show');
+        return;
+      }
+      if(dotsButton){
+        document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'));
+        document.querySelectorAll('.dots').forEach(d=>d.classList.remove('active'));
+        document.getElementById('m'+dotsButton.dataset.d).classList.add('open');
+        dotsButton.classList.add('active');
+        return;
+      }
+      if(renewButton&&!renewButton.disabled){
+        const i=+renewButton.dataset.renew;
+        if(data[i][5]!=='Pendiente')return;
+        data[i][5]='Renovada';
+        data[i][6]='746483';
+        renderRows();
+        successToast.classList.add('show');
+        setTimeout(()=>successToast.classList.remove('show'),6000);
+      }
+    });
+    closeDetailModal.onclick=()=>{overlay.classList.remove('show');modal.classList.remove('show')};
+
+    const summaryIcons=[
+      '<svg viewBox="0 0 24 24"><rect x="7" y="4" width="12" height="16" rx="2"/><path d="M5 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9M10 9h6M10 13h6M10 17h4"/></svg>',
+      '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2M8 2.8 5.5 5"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M6.1 8.1A7 7 0 0 1 18.5 7M17.9 15.9A7 7 0 0 1 5.5 17"/></svg>',
+      '<svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>'
+    ];
+    document.querySelectorAll('.card .ico').forEach((icon,i)=>icon.innerHTML=summaryIcons[i]);
+    const summaryTable=document.querySelector('.tablebox table');
+    summaryTable.insertAdjacentHTML('afterend','<div class="table-footer"><span>Resultados 1–8 de 128</span><div class="pagination" aria-label="Paginación"><button class="page-button arrow" disabled aria-label="Página anterior">‹</button><button class="page-button active">1</button><button class="page-button">2</button><button class="page-button">3</button><button class="page-button">4</button><span class="page-ellipsis">…</span><button class="page-button">13</button><button class="page-button arrow" aria-label="Página siguiente">›</button></div></div>');
+
+    const tabIcons=['<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 10h16M9 10v9"/></svg>','<svg viewBox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/><circle cx="4" cy="7" r="1"/><circle cx="10" cy="3" r="1"/><circle cx="16" cy="10" r="1"/></svg>'];
+    document.querySelectorAll('.tabs button').forEach((button,i)=>button.innerHTML=tabIcons[i]+'<span>'+button.textContent.replace('▥','').trim()+'</span>');
+
+    const workflowMeta=data.map(()=>({history:[{user:'Aseguradora del Sur',date:'01/09/2026',action:'Creación de oportunidad'}],documents:[]}));
+    let activeWorkflowIndex=null,validatedFiles=[];
+    const workflowModals=document.querySelectorAll('.workflow-modal'),renegotiateModal=document.getElementById('renegotiateModal'),noRenewModal=document.getElementById('noRenewModal'),historyModal=document.getElementById('historyModal'),documentsModal=document.getElementById('documentsModal'),renegotiateFiles=document.getElementById('renegotiateFiles'),selectedFiles=document.getElementById('selectedFiles'),renegotiateError=document.getElementById('renegotiateError'),noRenewReason=document.getElementById('noRenewReason'),noRenewError=document.getElementById('noRenewError');
+
+    function today(){return new Intl.DateTimeFormat('es-EC',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date())}
+    function openWorkflow(modal,index){activeWorkflowIndex=index;workflowModals.forEach(m=>m.classList.remove('show'));overlay.classList.add('show');modal.classList.add('show')}
+    function closeWorkflow(){workflowModals.forEach(m=>m.classList.remove('show'));overlay.classList.remove('show');activeWorkflowIndex=null}
+    document.querySelectorAll('[data-close-workflow]').forEach(button=>button.onclick=closeWorkflow);
+
+    function showWorkflowToast(title,message){
+      successToast.querySelector('strong').textContent=title;
+      successToast.querySelector('strong+span').textContent=message||'';
+      successToast.classList.add('show');
+      setTimeout(()=>successToast.classList.remove('show'),6000);
+    }
+    function fileSize(bytes){return bytes>=1048576?(bytes/1048576).toFixed(1)+' MB':Math.max(1,Math.round(bytes/1024))+' KB'}
+
+    const sampleDocuments=[
+      {name:'Slip_de_renovacion_2026.pdf',size:'2.4 MB',date:'18/09/2026'},
+      {name:'Cuadro_comparativo_de_primas.xlsx',size:'846 KB',date:'18/09/2026'},
+      {name:'Condiciones_de_renovacion.docx',size:'1.1 MB',date:'17/09/2026'}
+    ];
+    workflowMeta.forEach((meta,index)=>{if(!meta.documents.length)meta.documents=sampleDocuments.slice(0,index%3===0?3:2).map(doc=>({...doc}))});
+    const renegotiationIcon='<svg viewBox="0 0 24 24"><path d="M7 8.5h8.5a3.5 3.5 0 0 1 0 7H13l-3.5 3v-3H7a3.5 3.5 0 0 1 0-7Z"/><path d="M9 5.5h8a3 3 0 0 1 2.2 5M11.5 12h.01M15 12h.01M8 12h.01"/></svg>';
+    const summaryCardIcons=document.querySelectorAll('.card .ico');if(summaryCardIcons[2])summaryCardIcons[2].innerHTML=renegotiationIcon;
+
+    const tabs=[...document.querySelectorAll('.tabs button')],summaryCards=document.querySelector('.cards'),summaryBox=document.querySelector('.tablebox');
+    const dashboardView=document.createElement('section');
+    dashboardView.className='dashboard-view';
+    dashboardView.id='dashboardView';
+    summaryBox.insertAdjacentElement('afterend',dashboardView);
+
+    function parsePremium(value){return Number(value.replace(/[^0-9,]/g,'').replace(/\./g,'').replace(',','.'))||0}
+    function money(value){return new Intl.NumberFormat('es-EC',{style:'currency',currency:'USD',minimumFractionDigits:2}).format(value)}
+
+    function renderDashboard(){
+      const totalPremium=data.reduce((sum,row)=>sum+policyPremium(row),0),pendingPremium=data.filter(row=>row[5]==='Pendiente').reduce((sum,row)=>sum+policyPremium(row),0),renewedPremium=data.filter(row=>row[5]==='Renovada').reduce((sum,row)=>sum+policyPremium(row),0),effectiveness=(pendingPremium+renewedPremium)?renewedPremium/(pendingPremium+renewedPremium)*100:0;
+      const now=new Date(),currentMonth=now.getMonth()+1,currentYear=now.getFullYear(),expiring=data.flatMap(policiesFor).filter(policy=>{const parts=policy.expiry.split('/').map(Number);return parts[1]===currentMonth&&parts[2]===currentYear}).length;
+      const statusColors={'Pendiente':'#f1bc2f','En renegociación':'#169fd2','Renovada':'#55a951','No renovado':'#bd6170'},statusCounts={};
+      data.forEach(row=>statusCounts[row[5]]=(statusCounts[row[5]]||0)+1);
+      const circumference=2*Math.PI*45;let offset=0;
+      const segments=Object.entries(statusCounts).map(([label,value])=>{
+        const length=value/data.length*circumference,pct=value/data.length*100,html=`<circle class="donut-segment" cx="60" cy="60" r="45" fill="none" stroke="${statusColors[label]||'#8190a7'}" stroke-width="17" stroke-dasharray="${length} ${circumference-length}" stroke-dashoffset="${-offset}" data-label="${label}" data-value="${value}" data-pct="${pct.toFixed(1)}"></circle>`;
+        offset+=length;
+        return html;
+      }).join('');
+      const legend=Object.entries(statusCounts).map(([label,value])=>`<div class="legend-row"><span class="legend-dot" style="background:${statusColors[label]||'#8190a7'}"></span><span>${label}</span><b>${value}</b></div>`).join('');
+      const branchTotals={};
+      data.flatMap(policiesFor).forEach(policy=>branchTotals[policy.branch]=(branchTotals[policy.branch]||0)+parsePremium(policy.premium));
+      const branchMax=Math.max(...Object.values(branchTotals));
+      const branches=Object.entries(branchTotals).sort((a,b)=>b[1]-a[1]).map(([label,value])=>`<div><div class="branch-bar-head"><span>${label}</span><b>${money(value)}</b></div><div class="branch-track"><div class="branch-fill" style="width:${value/branchMax*100}%" data-label="${label}" data-value="${money(value)}" data-pct="${(value/totalPremium*100).toFixed(1)}"></div></div></div>`).join('');
+      dashboardView.innerHTML=`<div class="dashboard-metrics"><article class="dashboard-metric"><div class="dashboard-metric-head"><h3>Prima total en cartera</h3><span class="dashboard-metric-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4zM7 7V5h10v2M8 12h8M8 16h5"/></svg></span></div><strong>${money(totalPremium)}</strong></article><article class="dashboard-metric"><div class="dashboard-metric-head"><h3>Tasa de renovación (efectividad)</h3><span class="dashboard-metric-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span></div><strong>${effectiveness.toFixed(2)}%</strong></article><article class="dashboard-metric"><div class="dashboard-metric-head"><h3>Próximas a vencer</h3><span class="dashboard-metric-icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M12 13v3m0 0 2-2m-2 2-2-2"/></svg></span></div><strong>${expiring}</strong></article></div><div class="dashboard-charts"><article class="dashboard-chart"><h3>Distribución por estado</h3><p>Oportunidades de renovación del periodo mostrado</p><div class="donut-layout"><div class="donut-wrap"><svg viewBox="0 120 120"><circle cx="60" cy="60" r="45" fill="none" stroke="#edf2f7" stroke-width="17"></circle>${segments}</svg><div class="donut-center"><strong>${data.length}</strong><span>oportunidades</span></div></div><div class="chart-legend">${legend}</div></div><div class="chart-tooltip"></div></article><article class="dashboard-chart"><h3>Prima por ramo</h3><p>Valor de las oportunidades de renovación por ramo</p><div class="branch-bars">${branches}</div><div class="chart-tooltip"></div></article></div>`;
+      dashboardView.querySelectorAll('.donut-segment,.branch-fill').forEach(item=>{
+        const card=item.closest('.dashboard-chart'),tip=card.querySelector('.chart-tooltip');
+        item.addEventListener('mousemove',event=>{
+          tip.innerHTML=`<b>${item.dataset.label}</b><br>${item.dataset.value} · ${item.dataset.pct}%`;
+          const rect=card.getBoundingClientRect();
+          tip.style.left=Math.min(event.clientX-rect.left+12,rect.width-170)+'px';
+          tip.style.top=(event.clientY-rect.top+12)+'px';
+          tip.classList.add('show');
+        });
+        item.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+      });
+    }
+
+    function selectTab(index){
+      tabs.forEach((tab,i)=>tab.classList.toggle('active',i===index));
+      summaryCards.classList.toggle('summary-hidden',index===1);
+      summaryBox.classList.toggle('summary-hidden',index===1);
+      dashboardView.classList.toggle('show',index===1);
+      if(index===1)renderDashboard();
+    }
+    tabs.forEach((tab,index)=>tab.addEventListener('click',()=>selectTab(index)));
+
+    function renderDownloadableDocuments(index){
+      const docs=workflowMeta[index].documents;
+      document.getElementById('documentsBody').innerHTML=docs.length?'<div class="document-list">'+docs.map((doc,docIndex)=>`<div class="document-item"><div><strong>${doc.name}</strong><span>${doc.size} · ${doc.date}</span></div><button class="document-download" data-document="${docIndex}" data-record="${index}" aria-label="Descargar ${doc.name}" title="Descargar"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 19v2h14v-2"/></svg></button></div>`).join('')+'</div>':'<div class="documents-empty">Aún no existen documentos cargados para este registro.</div>';
+    }
+
+    document.getElementById('documentsBody').addEventListener('click',event=>{
+      const button=event.target.closest('.document-download');
+      if(!button)return;
+      const doc=workflowMeta[Number(button.dataset.record)].documents[Number(button.dataset.document)];
+      const content=`Documento de demostración: ${doc.name}\nVencimientos Corporativos APS\nFecha: ${doc.date}`;
+      const url=URL.createObjectURL(new Blob([content],{type:'text/plain'})),link=document.createElement('a');
+      link.href=url;link.download=doc.name;link.click();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
+    });
+
+    const renewalClients = [
+      {id:'1790000001001',city:'Quito',email:'renovaciones@favorita.example',phone:'022400101',mobile:'0990000101',linkStatus:'Aprobado',linkEnd:'2027-09-15'},
+      {id:'0990000002001',city:'Guayaquil',email:'seguros@andrade.example',phone:'042400102',mobile:'0990000102',linkStatus:'Registrado',linkEnd:'2027-09-20'},
+      {id:'0190000003001',city:'Cuenca',email:'administracion@mancheno.example',phone:'072400103',mobile:'0990000103',linkStatus:'Aprobado',linkEnd:'2027-09-25'},
+      {id:'1790000004001',city:'Quito',email:'seguros@hotelcolon.example',phone:'022400104',mobile:'0990000104',linkStatus:'Aprobado',linkEnd:'2027-09-30'},
+      {id:'1890000005001',city:'Ambato',email:'administracion@agronorte.example',phone:'032400105',mobile:'0990000105',linkStatus:'No registrado',linkEnd:''},
+      {id:'0990000006001',city:'Guayaquil',email:'seguros@ecuatrans.example',phone:'042400106',mobile:'0990000106',linkStatus:'Registrado',linkEnd:'2027-10-05'},
+      {id:'1790000007001',city:'Quito',email:'renovaciones@petroleros.example',phone:'022400107',mobile:'0990000107',linkStatus:'Aprobado',linkEnd:'2027-10-10'},
+      {id:'0190000008001',city:'Cuenca',email:'administracion@andina.example',phone:'072400108',mobile:'0990000108',linkStatus:'Registrado',linkEnd:'2027-10-12'}
+    ];
+    const additionalPolicies = [
+      [{number:'IF-2026-0124',branch:'Incendio',expiry:'18/09/2026',premium:'$ 4.820,00'},{number:'RC-2026-0125',branch:'Responsabilidad civil',expiry:'22/09/2026',premium:'$ 2.650,00'}],
+      [{number:'TR-2026-0457',branch:'Transporte',expiry:'23/09/2026',premium:'$ 3.760,00'}],
+      [],[],
+      [{number:'AN-2026-0988',branch:'Automotriz',expiry:'04/10/2026',premium:'$ 5.230,00'},{number:'AN-2026-0989',branch:'Automotriz',expiry:'06/10/2026',premium:'$ 4.180,00'}],
+      [{number:'EA-2026-0655',branch:'Incendio',expiry:'08/10/2026',premium:'$ 7.100,00'}],[],
+      [{number:'DA-2026-0212',branch:'Robo',expiry:'14/10/2026',premium:'$ 2.180,00'}]
+    ];
+    const appliedBranchFilters=new Set();
+    data.forEach((row,index)=>{
+      row.identificacion=renewalClients[index].id;
+      row.sucursal=renewalClients[index].city;
+      row.policies=[{number:row[2],branch:row[1],expiry:row[3],premium:row[4]},...additionalPolicies[index]];
+    });
+    function escapeRenewal(value){return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
+    function policiesFor(row){return row.policies||[{number:row[2],branch:row[1],expiry:row[3],premium:row[4]}];}
+    function policyPremium(row){return policiesFor(row).reduce((sum,p)=>sum+parsePremium(p.premium),0);}
+
+    renderRows=function(){
+      const q=tableSearch.value.trim().toLocaleLowerCase('es');tb.innerHTML='';
+      data.forEach((row,index)=>{
+        const policies=policiesFor(row),search=[...row,row.identificacion,row.sucursal,...policies.flatMap(p=>Object.values(p))].join(' ').toLocaleLowerCase('es');
+        if((q&&!search.includes(q))||(appliedBranchFilters.size&&!appliedBranchFilters.has(row.sucursal)))return;
+        const pending=row[5]==='Pendiente',cls=({'Renovada':'renewed','En renegociación':'reneg','No renovado':'notrenewed'})[row[5]]||'pending';
+        const lines=key=>policies.map(p=>`<span class="policy-line">${escapeRenewal(p[key])}</span>`).join('');
+        tb.insertAdjacentHTML('beforeend',`<tr><td><div class="acts"><button class="iconbtn eye" data-i="${index}" aria-label="Ver detalle de ${escapeRenewal(row[0])}">${eye}</button><button class="iconbtn dots" data-d="${index}" aria-label="Acciones de ${escapeRenewal(row[0])}">⋮</button><div class="menu" id="m${index}"><button class="renew-action" data-renew="${index}" ${pending?'':'disabled'}>✓ Renovar</button><button ${pending?'':'disabled'}>↻ Renegociar</button><button ${pending?'':'disabled'}>⊗ No renovar</button><button>▤ Administrador de documentos</button><button>◷ Historial</button></div></div></td><td>${escapeRenewal(row.identificacion)}</td><td>${escapeRenewal(row[0])}</td><td>${lines('branch')}</td><td>${lines('number')}</td><td>${lines('expiry')}</td><td>${lines('premium')}</td><td>${escapeRenewal(row.sucursal)}</td><td><span class="status ${cls}">${escapeRenewal(row[5])}</span></td></tr>`);
+      });
+      const visible=tb.rows.length,footer=document.querySelector('.table-footer>span');
+      if(footer)footer.textContent=q?`${visible} ${visible===1?'registro encontrado':'registros encontrados'}`:'Resultados 1–8 de 128';
+    };
+
+    const corporateTable=document.querySelector('.tablebox table');
+    const gridScroll=document.createElement('div');gridScroll.className='grid-scroll';corporateTable.before(gridScroll);gridScroll.append(corporateTable);renderRows();
+
+    const sidebar=document.querySelector('.sidebar');
+    sidebar.querySelectorAll('.nav>div').forEach(item=>{
+      const label=item.textContent.replace(/\s+/g,' ').trim(),icon=label.slice(0,1),text=label.slice(1).trim();
+      item.innerHTML=`<span class="nav-icon" aria-hidden="true">${escapeRenewal(icon)}</span><span class="nav-label">${escapeRenewal(text)}</span>`;
+      item.title=text;
+    });
+    sidebar.insertAdjacentHTML('afterbegin','<button class="sidebar-toggle" type="button" aria-label="Compactar barra lateral" aria-expanded="true"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>');
+    const sidebarToggle=sidebar.querySelector('.sidebar-toggle');
+    function setSidebar(compact){sidebar.classList.toggle('collapsed',compact);sidebarToggle.setAttribute('aria-expanded',String(!compact));}
+    sidebarToggle.onclick=()=>{setSidebar(!sidebar.classList.contains('collapsed'));};
+  </script>
+</body>
+</html>
